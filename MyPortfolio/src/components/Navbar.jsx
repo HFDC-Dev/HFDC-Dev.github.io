@@ -1,7 +1,7 @@
 const Navbar = () => {
     return (
 
-        <div className="navbar bg-black/100 fixed top-0 left-0 w-full z-50 shadow-md px-6 lg:px-10 flex justify-between items-center">
+        <div className="navbar bg-black fixed top-0 left-0 w-full z-50 shadow-md px-6 lg:px-10 flex justify-between items-center">
 
             {/* Bouton d'accueil  */}
             <div className="flex-none">
@@ -41,7 +41,7 @@ const Navbar = () => {
                     </label>
                     <ul
                         tabIndex={0}
-                        className="menu dropdown-content mt-3 z-[1] p-4 shadow bg-base-200 rounded-box w-52 text-lg font-semibold"
+                        className="menu dropdown-content mt-3 z-1 p-4 shadow bg-base-200 rounded-box w-52 text-lg font-semibold"
                     >
                         <li><a href="#about">À propos</a></li>
                         <li><a href="#skills">Compétences</a></li>

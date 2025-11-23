@@ -22,7 +22,7 @@ const Hero = () => {
             <div className="relative z-10 flex flex-col lg:flex-row lg:gap-16 items-center lg:items-start max-w-6xl w-full">
 
                 {/* Texte Hero + Icones */}
-                <div className="text-center lg:text-left max-w-lg lg:max-w-xl ml-0 lg:ml-[-2rem]">
+                <div className="text-center lg:text-left max-w-lg lg:max-w-xl ml-0 lg:-ml-8">
                     <h1 className="text-6xl lg:text-5xl font-bold text-white mb-8"
                         style={{ fontFamily: '"Science Gothic", sans-serif' }}>
                         Salut !<br />
