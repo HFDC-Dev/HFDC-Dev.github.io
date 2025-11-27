@@ -2,6 +2,7 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
 import Skills from './components/Skills'
+import Background from './components/Background'
 import './index.css'
 
 function App() {
@@ -10,8 +11,10 @@ function App() {
     <>
       <Navbar />
       <Hero />
-      <About />
-      <Skills />
+      <Background>
+        <About />
+        <Skills />
+      </Background>
     </>
   )
 }
