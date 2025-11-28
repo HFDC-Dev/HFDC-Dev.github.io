@@ -2,7 +2,7 @@ import Matrix from '../assets/matrix.mp4'
 
 const Hero = () => {
     return (
-        <main className="relative w-full h-screen flex items-center justify-center px-8 lg:px-24">
+        <section className="relative w-full h-screen flex items-center justify-center px-8 lg:px-24">
 
             {/* Vidéo de fond */}
             <video
@@ -96,7 +96,7 @@ const Hero = () => {
                     </svg>
                 </a>
             </div>
-        </main>
+        </section>
 
     )
 }

@@ -3,7 +3,9 @@ import Hero from './components/Hero'
 import About from './components/About'
 import Skills from './components/Skills'
 import Background from './components/Background'
+import Projects from './components/Projects'
 import './index.css'
+
 
 function App() {
 
@@ -14,6 +16,7 @@ function App() {
       <Background>
         <About />
         <Skills />
+        <Projects />
       </Background>
     </>
   )

@@ -1,5 +1,3 @@
-// import Space from '../assets/space.mp4'
-
 const About = () => {
     return (
         <section
