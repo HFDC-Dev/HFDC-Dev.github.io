@@ -20,9 +20,11 @@ const Navbar = () => {
 
             {/* Bouton Contact */}
             <div className="hidden lg:flex flex-none">
-                <button className="w-25 h-10 bg-emerald-600 hover:bg-emerald-500 text-black font-bold border-none cursor-pointer" style={{ fontFamily: '"Science Gothic", sans-serif' }}>
-                    Contact
-                </button>
+                <a href="#contact">
+                    <button className="w-25 h-10 bg-emerald-600 hover:bg-emerald-500 text-black font-bold border-none cursor-pointer" style={{ fontFamily: '"Science Gothic", sans-serif' }}>
+                        Contact
+                    </button>
+                </a>
             </div>
 
             {/* Menu hamburger mobile */}
