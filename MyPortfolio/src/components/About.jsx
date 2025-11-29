@@ -44,7 +44,7 @@ const About = () => {
                     {/* Colonne droite */}
                     <div className="flex flex-col gap-3 md:gap-6 w-full">
                         {/* Carte Innovation */}
-                        <div className="p-3 md:p-6 bg-linear-to-br from-gray-800 via-black to-gray-900 backdrop-blur-md rounded-xl shadow-lg
+                        <div className="p-3 md:p-6 bg-base-300 backdrop-blur-md rounded-xl shadow-lg
                                         hover:-translate-y-1 transition-all w-full">
                             <div className="flex items-center gap-2 md:gap-3 mb-1 md:mb-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -58,7 +58,7 @@ const About = () => {
                         </div>
 
                         {/* Carte Web Development */}
-                        <div className="p-3 md:p-6 bg-linear-to-br from-gray-800 via-black to-gray-900 backdrop-blur-md rounded-xl shadow-lg
+                        <div className="p-3 md:p-6 bg-base-300 backdrop-blur-md rounded-xl shadow-lg
                                         hover:-translate-y-1 transition-all w-full">
                             <div className="flex items-center gap-2 md:gap-3 mb-1 md:mb-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -72,7 +72,7 @@ const About = () => {
                         </div>
 
                         {/* Carte UI/UX Design */}
-                        <div className="p-3 md:p-6 bg-linear-to-br from-gray-800 via-black to-gray-900 backdrop-blur-md rounded-xl shadow-lg
+                        <div className="p-3 md:p-6 bg-base-300 backdrop-blur-md rounded-xl shadow-lg
                                         hover:-translate-y-1 transition-all w-full">
                             <div className="flex items-center gap-2 md:gap-3 mb-1 md:mb-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
