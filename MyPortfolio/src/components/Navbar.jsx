@@ -5,12 +5,12 @@ const Navbar = () => {
 
             {/* Bouton d'accueil  */}
             <div className="flex-none">
-                <a href="#" className="text-5xl font-bold text-emerald-600" style={{ fontFamily: '"Science Gothic", sans-serif' }}>H</a>
+                <a href="#" className="text-5xl font-bold text-emerald-600">H</a>
             </div>
 
             {/* Liens centraux pour desktop */}
             <div className="hidden lg:flex flex-1 justify-center">
-                <ul className="menu menu-horizontal px-1 text-lg font-semibold gap-8" style={{ fontFamily: '"Science Gothic", sans-serif' }}>
+                <ul className="menu menu-horizontal px-1 text-lg font-semibold gap-8">
                     <li><a href="#about" className="hover:text-emerald-600">À propos</a></li>
                     <li><a href="#skills" className="hover:text-emerald-600">Compétences</a></li>
                     <li><a href="#projects" className="hover:text-emerald-600">Projets</a></li>
@@ -21,7 +21,7 @@ const Navbar = () => {
             {/* Bouton Contact */}
             <div className="hidden lg:flex flex-none">
                 <a href="#contact">
-                    <button className="w-25 h-10 bg-emerald-600 hover:bg-emerald-500 text-black font-bold border-none cursor-pointer" style={{ fontFamily: '"Science Gothic", sans-serif' }}>
+                    <button className="w-25 h-10 bg-emerald-600 hover:bg-emerald-500 text-black font-bold border-none cursor-pointer">
                         Contact
                     </button>
                 </a>

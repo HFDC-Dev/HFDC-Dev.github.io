@@ -34,7 +34,7 @@ const Footer = () => {
             </div>
 
             {/* Copyright */}
-            <div className="text-white text-sm text-center" style={{ fontFamily: '"Science Gothic", sans-serif' }}>
+            <div className="text-white text-sm text-center">
                 © 2025 HFDC-Dev. Tous droits réservés.
             </div>
 

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import Matrix from '../assets/matrix.mp4';
+import Matrix from '../assets/matrix_1.webm';
 
 const Hero = () => {
     const titleRef = useRef(null);
@@ -38,7 +38,7 @@ const Hero = () => {
                 playsInline
                 className="absolute top-0 left-0 w-full h-full object-cover -z-20"
             >
-                <source src={Matrix} type="video/mp4" />
+                <source src={Matrix} type="video/webm" />
             </video>
 
             {/* Filtre */}
@@ -51,7 +51,7 @@ const Hero = () => {
                 <h1
                     ref={titleRef}
                     className="text-6xl lg:text-5xl font-bold text-white mb-8 opacity-0 -translate-y-10 transition-all duration-700"
-                    style={{ fontFamily: '"Science Gothic", sans-serif' }}
+
                 >
                     Salut ! <span className="text-emerald-400">Je suis Henrique.</span>
                 </h1>
@@ -60,7 +60,7 @@ const Hero = () => {
                 <p
                     ref={subtitleRef}
                     className='typewriter text-4xl text-white mb-4 opacity-0 -translate-y-10 transition-all duration-700 delay-200'
-                    style={{ fontFamily: '"Science Gothic", sans-serif' }}
+
                 >
                     Développeur web
                 </p>
@@ -69,7 +69,7 @@ const Hero = () => {
                 <p
                     ref={descRef}
                     className="py-4 text-lg lg:text-xl text-white max-w-xl opacity-0 -translate-y-10 transition-all duration-700 delay-400"
-                    style={{ fontFamily: '"Science Gothic", sans-serif' }}
+
                 >
                     Passionné par la création d’interfaces modernes, performantes et accessibles.
                     Je transforme des idées en expériences web engageantes.

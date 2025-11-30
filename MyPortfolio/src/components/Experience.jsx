@@ -65,7 +65,7 @@ const Experience = () => {
                 <h1
                     ref={titleRef}
                     className="text-4xl md:text-5xl font-bold text-white opacity-0 -translate-y-10 transition-all duration-700"
-                    style={{ fontFamily: '"Science Gothic", sans-serif' }}
+
                 >
                     Mon <span className="text-emerald-400">Parcours</span>
                 </h1>
@@ -82,7 +82,7 @@ const Experience = () => {
                             <div className="flex items-center gap-6 bg-[#1B1717] p-8 rounded-2xl shadow-xl w-full">
                                 <img src={slide.logo} alt={slide.title} className="w-24 h-24 object-contain" />
 
-                                <div style={{ fontFamily: '"Science Gothic", sans-serif' }}>
+                                <div>
                                     <h2 className="text-xl md:text-2xl font-bold text-white">{slide.title}</h2>
                                     <p className="text-emerald-400 text-sm font-semibold mt-1">{slide.date}</p>
                                     <p className="text-gray-300 mt-3">{slide.description}</p>

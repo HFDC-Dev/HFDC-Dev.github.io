@@ -64,7 +64,7 @@ const Contact = () => {
             <h1
                 ref={titleRef}
                 className="text-4xl md:text-5xl font-bold text-white mb-10 opacity-0 -translate-y-10 transition-all duration-700"
-                style={{ fontFamily: '"Science Gothic", sans-serif' }}
+
             >
                 Me <span className="text-emerald-400">Contacter</span>
             </h1>
@@ -105,7 +105,7 @@ const Contact = () => {
                 </div>
 
                 <div className="form-control">
-                    <label className="label w-32">
+                    <label className="label w-38">
                         <span className="label-text text-white">Votre message</span>
                     </label>
                     <textarea
@@ -122,7 +122,7 @@ const Contact = () => {
                     <button
                         type="submit"
                         className="btn bg-emerald-500 border-none hover:bg-emerald-600 text-black px-15 rounded-lg text-lg"
-                        style={{ fontFamily: '"Science Gothic", sans-serif' }}
+
                     >
                         Envoyer
                     </button>

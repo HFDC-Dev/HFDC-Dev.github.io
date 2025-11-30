@@ -64,7 +64,7 @@ const Projects = () => {
                 <h1
                     ref={titleRef}
                     className="text-4xl md:text-5xl font-bold text-white opacity-0 -translate-y-10 transition-all duration-700"
-                    style={{ fontFamily: '"Science Gothic", sans-serif' }}
+
                 >
                     Mes <span className="text-emerald-400">Projets</span>
                 </h1>
@@ -110,7 +110,7 @@ const Projects = () => {
                         {/* Description + bouton */}
                         <div
                             className="p-4 text-left rounded-lg shadow-inner"
-                            style={{ fontFamily: '"Science Gothic", sans-serif' }}
+
                         >
                             <p className="text-white mb-6">{projects[current].description}</p>
 
