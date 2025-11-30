@@ -103,7 +103,10 @@ const Experience = () => {
                             onClick={() => goToSlide(index)}
                             className={`w-5 h-5 rounded-full transition-all duration-300 ${current === index ? "bg-emerald-400 scale-125" : "bg-gray-500"
                                 }`}
-                        ></button>
+                            aria-label={`Aller à la diapositive ${index + 1}`}
+
+                        >
+                        </button>
                     ))}
                 </div>
             </div>
