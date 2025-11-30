@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import project1 from "../assets/grimoire.png";
 import project2 from "../assets/nina.png";
 import project3 from "../assets/kasa.png";
@@ -7,6 +7,30 @@ import logo2 from "../assets/nina-logo.png";
 import logo3 from "../assets/kasa-logo.png";
 
 const Projects = () => {
+    const [current, setCurrent] = useState(null);
+
+    const titleRef = useRef(null);
+    const logosRef = useRef(null);
+
+    // Intersection Observer pour fade + slide
+    useEffect(() => {
+        const elements = [titleRef.current, logosRef.current];
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("opacity-100", "translate-y-0");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.2 }
+        );
+
+        elements.forEach(el => {
+            if (el) observer.observe(el);
+        });
+    }, []);
 
     // Tableau des projets
     const projects = [
@@ -33,14 +57,13 @@ const Projects = () => {
         },
     ];
 
-    const [current, setCurrent] = useState(null);
-
     return (
-        <section id="projects" className="section flex flex-col items-center">
+        <section id="projects" className="section flex flex-col items-center overflow-hidden">
             {/* Titre */}
             <div className="text-center mb-20">
                 <h1
-                    className="text-4xl md:text-5xl font-bold text-white"
+                    ref={titleRef}
+                    className="text-4xl md:text-5xl font-bold text-white opacity-0 -translate-y-10 transition-all duration-700"
                     style={{ fontFamily: '"Science Gothic", sans-serif' }}
                 >
                     Mes <span className="text-emerald-400">Projets</span>
@@ -48,9 +71,11 @@ const Projects = () => {
             </div>
 
             <div className="w-full max-w-5xl mx-auto">
-
                 {/* Logos */}
-                <div className="flex justify-center gap-5 py-5 mb-10">
+                <div
+                    ref={logosRef}
+                    className="flex justify-center gap-5 py-5 mb-10 opacity-0 -translate-y-10 transition-all duration-700 delay-200"
+                >
                     {projects.map((project, index) => (
                         <button
                             key={index}
@@ -122,6 +147,6 @@ const Projects = () => {
             </div>
         </section>
     );
-}
+};
 
-export default Projects
+export default Projects;

@@ -1,6 +1,32 @@
-import Matrix from '../assets/matrix.mp4'
+import { useEffect, useRef } from "react";
+import Matrix from '../assets/matrix.mp4';
 
 const Hero = () => {
+    const titleRef = useRef(null);
+    const subtitleRef = useRef(null);
+    const descRef = useRef(null);
+    const iconsRef = useRef(null);
+
+    useEffect(() => {
+        const elements = [titleRef.current, subtitleRef.current, descRef.current, iconsRef.current];
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("opacity-100", "translate-y-0");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.2 }
+        );
+
+        elements.forEach(el => {
+            if (el) observer.observe(el);
+        });
+    }, []);
+
     return (
         <section className="relative w-full h-screen flex items-center justify-center px-8 lg:px-24">
 
@@ -23,7 +49,8 @@ const Hero = () => {
 
                 {/* Titre */}
                 <h1
-                    className="text-6xl lg:text-5xl font-bold text-white mb-8"
+                    ref={titleRef}
+                    className="text-6xl lg:text-5xl font-bold text-white mb-8 opacity-0 -translate-y-10 transition-all duration-700"
                     style={{ fontFamily: '"Science Gothic", sans-serif' }}
                 >
                     Salut ! <span className="text-emerald-400">Je suis Henrique.</span>
@@ -31,7 +58,8 @@ const Hero = () => {
 
                 {/* Sous-titre */}
                 <p
-                    className='typewriter text-4xl text-white mb-4'
+                    ref={subtitleRef}
+                    className='typewriter text-4xl text-white mb-4 opacity-0 -translate-y-10 transition-all duration-700 delay-200'
                     style={{ fontFamily: '"Science Gothic", sans-serif' }}
                 >
                     Développeur web
@@ -39,7 +67,8 @@ const Hero = () => {
 
                 {/* Description */}
                 <p
-                    className="py-4 text-lg lg:text-xl text-white max-w-xl"
+                    ref={descRef}
+                    className="py-4 text-lg lg:text-xl text-white max-w-xl opacity-0 -translate-y-10 transition-all duration-700 delay-400"
                     style={{ fontFamily: '"Science Gothic", sans-serif' }}
                 >
                     Passionné par la création d’interfaces modernes, performantes et accessibles.
@@ -47,8 +76,10 @@ const Hero = () => {
                 </p>
 
                 {/* icônes centrées */}
-                <div className="flex items-center justify-center gap-7 mt-6">
-
+                <div
+                    ref={iconsRef}
+                    className="flex items-center justify-center gap-7 mt-6 opacity-0 -translate-y-10 transition-all duration-700 delay-600"
+                >
                     {/* GitHub */}
                     <a
                         href="https://github.com/HFDC-Dev"
@@ -72,7 +103,6 @@ const Hero = () => {
                             <path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4v16h-4V8zm7.5 0h3.78v2.16h.05c.53-1 1.82-2.16 3.74-2.16 4 0 4.74 2.62 4.74 6.03V24h-4v-7.42c0-1.77-.03-4.05-2.47-4.05-2.48 0-2.86 1.93-2.86 3.92V24h-4V8z" />
                         </svg>
                     </a>
-
                 </div>
             </div>
 
@@ -97,8 +127,7 @@ const Hero = () => {
                 </a>
             </div>
         </section>
+    );
+};
 
-    )
-}
-
-export default Hero
+export default Hero;

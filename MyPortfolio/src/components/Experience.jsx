@@ -1,7 +1,6 @@
-import ocLogo from "../assets/oc-logo.png"
-import slLogo from "../assets/auto-logo.jpg"
-import { useRef, useState } from "react";
-
+import ocLogo from "../assets/oc-logo.png";
+import slLogo from "../assets/auto-logo.jpg";
+import { useRef, useState, useEffect } from "react";
 
 const Experience = () => {
     const slides = [
@@ -23,6 +22,9 @@ const Experience = () => {
 
     const [current, setCurrent] = useState(0);
     const carouselRef = useRef(null);
+    const titleRef = useRef(null);
+    const carouselContainerRef = useRef(null);
+    const dotsRef = useRef(null);
 
     const goToSlide = (index) => {
         setCurrent(index);
@@ -36,13 +38,33 @@ const Experience = () => {
         });
     };
 
-    return (
-        <section id="experience" className="section bg-base-300 flex flex-col items-center py-16">
+    // Intersection Observer pour fade + slide
+    useEffect(() => {
+        const elements = [titleRef.current, carouselContainerRef.current, dotsRef.current];
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("opacity-100", "translate-y-0");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.2 }
+        );
 
+        elements.forEach(el => {
+            if (el) observer.observe(el);
+        });
+    }, []);
+
+    return (
+        <section id="experience" className="section bg-base-300 flex flex-col items-center py-16 overflow-hidden">
             {/* Titre */}
             <div className="text-center mb-16">
                 <h1
-                    className="text-4xl md:text-5xl font-bold text-white"
+                    ref={titleRef}
+                    className="text-4xl md:text-5xl font-bold text-white opacity-0 -translate-y-10 transition-all duration-700"
                     style={{ fontFamily: '"Science Gothic", sans-serif' }}
                 >
                     Mon <span className="text-emerald-400">Parcours</span>
@@ -50,14 +72,13 @@ const Experience = () => {
             </div>
 
             {/* Carousel */}
-            <div className="w-full max-w-4xl">
-
+            <div
+                ref={carouselContainerRef}
+                className="w-full max-w-4xl opacity-0 -translate-y-10 transition-all duration-700 delay-200"
+            >
                 <div ref={carouselRef} className="carousel w-full rounded-2xl overflow-hidden scroll-smooth">
                     {slides.map((slide, index) => (
-                        <div
-                            key={index}
-                            className="carousel-item w-full flex justify-center"
-                        >
+                        <div key={index} className="carousel-item w-full flex justify-center">
                             <div className="flex items-center gap-6 bg-[#1B1717] p-8 rounded-2xl shadow-xl w-full">
                                 <img src={slide.logo} alt={slide.title} className="w-24 h-24 object-contain" />
 
@@ -72,23 +93,22 @@ const Experience = () => {
                 </div>
 
                 {/* Dots */}
-                <div className="flex justify-center gap-4 mt-6">
+                <div
+                    ref={dotsRef}
+                    className="flex justify-center gap-4 mt-6 opacity-0 -translate-y-10 transition-all duration-700 delay-400"
+                >
                     {slides.map((_, index) => (
                         <button
                             key={index}
                             onClick={() => goToSlide(index)}
-                            className={`w-5 h-5 rounded-full transition-all duration-300 ${current === index
-                                ? "bg-emerald-400 scale-125"
-                                : "bg-gray-500"
+                            className={`w-5 h-5 rounded-full transition-all duration-300 ${current === index ? "bg-emerald-400 scale-125" : "bg-gray-500"
                                 }`}
                         ></button>
                     ))}
                 </div>
-
             </div>
-
         </section>
     );
 };
 
-export default Experience
+export default Experience;

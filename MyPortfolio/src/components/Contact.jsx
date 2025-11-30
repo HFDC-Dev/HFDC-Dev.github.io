@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import emailjs from "emailjs-com";
 
 const Contact = () => {
@@ -9,6 +9,9 @@ const Contact = () => {
     });
 
     const [showModal, setShowModal] = useState(false);
+
+    const titleRef = useRef(null);
+    const formRef = useRef(null);
 
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
@@ -36,18 +39,40 @@ const Contact = () => {
             );
     };
 
+    // Intersection Observer pour fade + slide
+    useEffect(() => {
+        const elements = [titleRef.current, formRef.current];
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("opacity-100", "translate-y-0");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.2 }
+        );
+
+        elements.forEach((el) => {
+            if (el) observer.observe(el);
+        });
+    }, []);
+
     return (
         <section id="contact" className="section flex flex-col items-center overflow-hidden">
             <h1
-                className="text-4xl md:text-5xl font-bold text-white mb-10"
+                ref={titleRef}
+                className="text-4xl md:text-5xl font-bold text-white mb-10 opacity-0 -translate-y-10 transition-all duration-700"
                 style={{ fontFamily: '"Science Gothic", sans-serif' }}
             >
                 Me <span className="text-emerald-400">Contacter</span>
             </h1>
 
             <form
+                ref={formRef}
                 onSubmit={handleSubmit}
-                className="w-full max-w-xl bg-base-300 p-8 rounded-2xl shadow-xl space-y-6"
+                className="w-full max-w-xl bg-base-300 p-8 rounded-2xl shadow-xl space-y-6 opacity-0 -translate-y-10 transition-all duration-700 delay-200"
             >
                 <div className="form-control">
                     <label className="label w-15">

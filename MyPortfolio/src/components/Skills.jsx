@@ -1,12 +1,43 @@
+import { useEffect, useRef } from "react";
+
 const Skills = () => {
+    const titleRef = useRef(null);
+    const frontEndRef = useRef(null);
+    const backEndRef = useRef(null);
+    const softSkillsRef = useRef(null);
+
+    useEffect(() => {
+        const elements = [titleRef.current, frontEndRef.current, backEndRef.current, softSkillsRef.current];
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("opacity-100", "translate-y-0");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.2 }
+        );
+
+        elements.forEach(el => {
+            if (el) observer.observe(el);
+        });
+    }, []);
+
     return (
         <section
             id="skills"
-            className=" section bg-base-300 flex flex-col items-center overflow-hidden"
+            className="section bg-base-300 flex flex-col items-center overflow-hidden"
         >
             {/* Titre */}
             <div className="text-center md:mb-35 mb-15">
-                <h1 className="text-4xl md:text-5xl font-bold text-white" style={{ fontFamily: '"Science Gothic", sans-serif' }}>
+                <h1
+                    ref={titleRef}
+                    className="text-4xl md:text-5xl font-bold text-white opacity-0 -translate-y-10 transition-all duration-700"
+                    style={{ fontFamily: '"Science Gothic", sans-serif' }}
+                >
                     Mes <span className="text-emerald-400">Compétences</span>
                 </h1>
             </div>
@@ -14,7 +45,10 @@ const Skills = () => {
             {/* Blocs Front-end / Back-end */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full max-w-6xl">
                 {/* Front-end */}
-                <div className="relative bg-[#1B1717] rounded-2xl p-8 flex flex-col items-center overflow-hidden">
+                <div
+                    ref={frontEndRef}
+                    className="relative bg-[#1B1717] rounded-2xl p-8 flex flex-col items-center overflow-hidden opacity-0 -translate-y-10 transition-all duration-700 delay-200"
+                >
                     <h2 className="text-2xl font-bold text-emerald-400 mb-8 text-center" style={{ fontFamily: '"Science Gothic", sans-serif' }}>
                         Front-<span className="text-white">end</span>
                     </h2>
@@ -39,7 +73,10 @@ const Skills = () => {
                 </div>
 
                 {/* Back-end */}
-                <div className="relative bg-[#1B1717] rounded-2xl p-8 flex flex-col items-center  overflow-hidden">
+                <div
+                    ref={backEndRef}
+                    className="relative bg-[#1B1717] rounded-2xl p-8 flex flex-col items-center overflow-hidden opacity-0 -translate-y-10 transition-all duration-700 delay-400"
+                >
                     <h2 className="text-2xl font-bold text-emerald-400 mb-8 text-center" style={{ fontFamily: '"Science Gothic", sans-serif' }}>
                         Back-<span className="text-white">end</span>
                     </h2>
@@ -60,13 +97,16 @@ const Skills = () => {
                 </div>
             </div>
 
-            <div className="relative bg-[#1B1717] rounded-2xl p-8 mt-8 w-full max-w-4xl mx-auto backdrop-blur-md">
+            {/* Soft Skills */}
+            <div
+                ref={softSkillsRef}
+                className="relative bg-[#1B1717] rounded-2xl p-8 mt-8 w-full max-w-4xl mx-auto backdrop-blur-md opacity-0 -translate-y-10 transition-all duration-700 delay-600"
+            >
                 <h2 className="text-2xl font-bold text-emerald-400 mb-8 text-center" style={{ fontFamily: '"Science Gothic", sans-serif' }}>
                     Soft <span className="text-white">Skills</span>
                 </h2>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-white">
-
                     {/* Communication */}
                     <div className="flex items-center gap-3" style={{ fontFamily: '"Science Gothic", sans-serif' }}>
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -114,12 +154,10 @@ const Skills = () => {
                         </svg>
                         <span>Curiosité & apprentissage continu</span>
                     </div>
-
                 </div>
             </div>
         </section>
+    );
+};
 
-    )
-}
-
-export default Skills
+export default Skills;
