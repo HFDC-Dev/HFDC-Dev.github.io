@@ -19,4 +19,3 @@ Bienvenue sur mon portfolio en ligne ! Ce site présente mes projets, mon parcou
 
 ---
 
-## 📂 Structure du projet
