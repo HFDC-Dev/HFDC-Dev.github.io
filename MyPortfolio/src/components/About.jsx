@@ -61,8 +61,7 @@ const About = () => {
 
                         {/* CV */}
                         <a
-                            href="../public/CV_1.pdf"
-                            download="CV_1.pdf"
+                            href="https://hfdc-dev.github.io/HFDC.github.io/CV_v1.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="mt-4 md:mt-8 px-4 md:px-6 py-2 md:py-3 bg-emerald-500 hover:bg-emerald-600
