@@ -7,7 +7,7 @@ Bienvenue sur mon portfolio en ligne ! Ce site présente mes projets, mon parcou
 
 ## 🌐 URL du site
 
-[https://hfdc.github.io/](https://hfdc-dev.github.io/HFDC.github.io/)
+[https://hfdc-dev.github.io/](https://hfdc-dev.github.io/)
 
 ---
 
