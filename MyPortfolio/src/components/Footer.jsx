@@ -20,7 +20,7 @@ const Footer = () => {
 
                 {/* LinkedIn */}
                 <a
-                    href="https://linkedin.com/in/tonprofil"
+                    href="https://www.linkedin.com/in/henrique-fonseca-da-costa/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:scale-110 transition-transform"

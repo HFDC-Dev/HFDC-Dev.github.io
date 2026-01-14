@@ -95,7 +95,7 @@ const Hero = () => {
 
                     {/* LinkedIn */}
                     <a
-                        href="https://linkedin.com/in/tonprofil"
+                        href="https://www.linkedin.com/in/henrique-fonseca-da-costa/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-white hover:text-emerald-400 transition-transform hover:scale-125"

@@ -61,7 +61,7 @@ const About = () => {
 
                         {/* CV */}
                         <a
-                            href="https://hfdc-dev.github.io/HFDC.github.io/CV_v1.pdf"
+                            href="https://hfdc-dev.github.io/Henrique_FonsecaDaCosta_CV.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="mt-4 md:mt-8 px-4 md:px-6 py-2 md:py-3 bg-emerald-500 hover:bg-emerald-600
